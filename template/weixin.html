@@ -1,0 +1,14 @@
+<div class="user-news">
+  <div class="not-available" ng-show="!news.length">暂无聊天信息</div>
+  <ul class="WeChat" ng-init="swipe=false">
+    <li class="Contact-Person"ng-repeat="v in news" ng-swipe-right="swipe=false" ng-swipe-left="swipe=true" ng-class="{del:swipe}">
+      <a href="#/ChatArea/{{$index}}">
+        <img src="{{v.img}}">
+        <span class="name">{{v.name}}</span>
+        <span class="exchange">{{v.current}}</span>
+        <span class="time">{{v.time}}</span>
+      </a>
+      <div class="del-btn" ng-click="delList($index)">删除</div>
+    </li>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weixin">
+<head>
+  <base href="/" target="_blank" />
+  <meta charset="utf-8">
+  <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- 360 浏览器就会在读取到这个标签后，立即切换对应的极速核 -->
+  <meta name="renderer" content="webkit">
+  <!-- 禁止百度转码 -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微信</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body ng-controller="indexCtrl">
+  <div id="header">
+    <ul class="logo-lists">
+      <li class="weixin">微信</li>
+      <li class="ss"></li>
+      <li class="add"></li>
+    </ul>
+  </div>
+<div id="main">
+<ng-view class="view"></ng-view>
+</div>
+<div id="footer">
+  <ul class="footer-list">
+    <li class="wx" ng-click="cur='#/weixin'"ng-class="{active:cur==='#/weixin'}"><a href="#/weixin">微信</a></li>
+    <li class="txl"ng-click="cur='#/addressBook'" ng-class="{active:cur==='#/addressBook'}"><a href="#/addressBook">通讯录</a></li>
+    <li class="fx" ng-click="cur='#/discover'" ng-class="{active:cur==='#/discover'}"><a href="#/discover">发现</a></li>
+    <li class="wo" ng-click="cur='#/me'" ng-class="{active:cur==='#/me'}"><a href="#/me">我</a></li>
+  </ul>
+</div>
+<script type="text/javascript" src="./js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="./js/angular.js"></script>
+<script type="text/javascript" src="./js/angular-animate.js"></script>
+<script type="text/javascript" src="./js/angular-route.js"></script>
+<script src="./js/angular-touch.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>

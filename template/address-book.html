@@ -1,0 +1,27 @@
+<div class="address-book adbook">
+  <ul class="content-list">
+    <li class="inner new-friends">
+      <a href="javascript:;">新的朋友</a>
+    </li>
+    <li class="inner group-chat">
+      <a href="javascript:;">群聊</a>
+    </li>
+    <li class="inner  label">
+      <a href="javascript:;">标签</a>
+    </li>
+    <li class="inner ems-cnpl">
+      <a href="javascript:;">公众号</a>
+    </li>
+  </ul>
+  <div class="contact">
+    <dl class="letter" ng-repeat="v in addressBook">
+      <dt class="letter-content">{{v.key}}</dt>
+      <dd class="letter-text" ng-repeat="y in v.entry"><a href="javascript:;">
+        <img src="{{y.img}}">
+        <span class="name">{{y.name}}</span>
+      </a>
+    </dd>
+</dl>
+</div>
+<lin-letter></lin-letter>
+</div>

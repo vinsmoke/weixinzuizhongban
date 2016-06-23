@@ -1,0 +1,14 @@
+<ul class="chatlist">
+  <li ng-class="{'chat-me':v.isMe}"ng-repeat="v in chatList">
+    <div class="send-time">
+      <div ng-show="" class="time">{{v.sendTime}}</div>
+    </div>
+    <img ng-show="!v.isMe" src="{{taimg}}" alt="">
+    <img ng-show="v.isMe" src="{{myimg}}" alt="">
+    <div class="chat-content">
+    <span class="chat-content-text">{{v.content}}</span>
+    <span class="pointer"></span>
+    <div class="buding"></div>
+  </div>
+  </li>
+</ul>

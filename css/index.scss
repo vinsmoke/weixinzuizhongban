@@ -1,0 +1,679 @@
+@font-face {font-family: "iconfont";
+  src: url('../font/iconfont.eot?t=1464949880'); /* IE9*/
+  src: url('../font/iconfont.eot?t=1464949880#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff?t=1464949880') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf?t=1464949880') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg?t=1464949880#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {
+  font-family: 'prince';
+  src:url('../font/王子的爱情.ttf');
+}
+
+@mixin userrem($size) {
+  $shebei:320px ,375px ,414px, 360px, 384px,435px,$size;
+  html{
+    @each $i in $shebei{
+      @media screen and (min-width:$i){
+        font-size: 100px*($i/$size);
+      }
+    }
+  }
+}
+@include userrem(1080px);
+body{
+  font-size: 14px;
+  color:#353535;
+  font-family: 'prince',Arial;
+  background-color: #ebebeb;
+}
+a{
+  color:#353535;
+  &:hover{
+    text-decoration: none;
+  }
+}
+ul,li{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+$img:'../image/';
+%middle{
+  position: absolute;
+  margin: auto;
+  top:0;
+  bottom:0;
+}
+#header{
+  width:100%;
+  height:1.46rem;
+  background-color: #393A3F;
+  position: fixed;
+  top:0;
+  left:0;
+  .logo-lists{
+    position: relative;
+    height:1.46rem;
+    .weixin{
+      width:1.11rem;
+      height:1.46rem;
+      color:#fff;
+      line-height: 1.46rem;
+      font-size: .62rem;
+      @extend %middle;
+      left:.44rem;
+    }
+    .ss,.add{
+      width:.8rem;
+      height:1.46rem;
+      @extend %middle;
+      text-align: center;
+      line-height: 1.46rem;
+      &::after{
+        font-family: 'iconfont';
+        display: block;
+        font-size: .75rem;
+        color:#fff;
+        font-weight:500;
+      }
+    }
+    .ss{
+      right:2.64rem;
+      &::after{
+        content: '\e601';
+      }
+    }
+    .add{
+      right:.73rem;
+      &::after{
+        content:'\e607';
+      }
+    }
+  }
+}
+#main{
+  position: absolute;
+  margin: auto;
+  top:1.46rem;
+  bottom:1.64rem;
+  left:0;
+  right:0;
+  overflow: auto;
+}
+.split{
+  height:.6rem;
+  background-color: #EBEBEB;
+}
+.content-list{
+  background-color: #fff;
+  padding:0 .44rem;
+  width:100%;
+  height:1.44rem;
+}
+.friend-circle .inner{
+  border:none;
+  &::before{
+    background: url($img+'pyq.png') no-repeat center center;
+    background-size:.69rem;
+  }
+}
+.icon-font .inner{
+  &::before{
+    line-height: 1.44rem;
+    text-align: center;
+    font-size: .72rem;
+    font-family: 'iconfont';
+    color:#10AEFF;
+  }
+}
+.onesweep .inner{
+  &::before{
+    content:'\e621';
+  }
+}
+.shark-it-off .inner{
+  border:none;
+  &::before{
+    content:'\e614';
+  }
+}
+.nearby .inner{
+  border:none;
+  &::before{
+    content:'\e610';
+  }
+}
+.shopping .inner{
+  &::before{
+    content:'\e60c';
+    color:#F86161;
+  }
+}
+.game .inner{
+  border:none;
+  &::before{
+    background: url($img+'game.png') no-repeat center center;
+    background-size:.69rem;
+  }
+}
+.inner{
+  padding-left:1.46rem;
+  height:1.44rem;
+  position: relative;
+  border-bottom:1px solid #DBDBDB;
+  background: #fff;
+  &::before{
+    content: '';
+    width:1rem;
+    height:100%;
+    display: block;
+    position: absolute;
+    top:0;
+    left:.22rem;
+  }
+  a{
+    height:1.44rem;
+    display: block;
+    font-size: .46rem;
+    line-height: 1.44rem;
+  }
+}
+/* 通讯录 */
+.address-book{
+  width:100%;
+  .content-list{
+    height:auto;
+  }
+  .inner::before{
+    width:1.1rem;
+    height:1.1rem;
+    bottom:0;
+    left:0;
+    margin:auto;
+  }
+  .ems-cnpl{
+    border-bottom: none;
+  }
+  $adbIcon:'new-friends','group-chat','label','ems-cnpl';
+
+  @each $icon in $adbIcon{
+    .#{$icon}::before{
+      background: url($img + $icon + '.png') no-repeat;
+      background-size:1.1rem 1.1rem;
+    }
+  }
+  .shortcut-letter{
+    width:.74rem;
+    height:100%;
+    position: fixed;
+    right:0;
+    top: 1.46rem;
+    bottom: 1.64rem;
+    text-align: center;
+    li{
+      height:.6rem;
+      line-height: .6rem;
+    }
+  }
+}
+.address-book .contact{
+  padding: 0 .44rem;
+  background-color: #fff;
+  .letter{
+    margin:0;
+    .letter-content{
+      height:.46rem;
+      background-color: #EBEBEB;
+      padding:0 .44rem;
+      margin:0 -0.44rem;
+      color:#828282;
+      font-weight:100;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      line-height: .46rem;
+    }
+    .letter-text{
+      height: 1.44rem;
+      position: relative;
+      border-bottom: 1px solid #DBDBDB;
+      background: #fff;
+      a{
+        height: 1.44rem;
+        display: block;
+        font-size: .46rem;
+        line-height: 1.44rem;
+        padding-left: 1.46rem;
+        img{
+          width: 1.1rem;
+          height: 1.1rem;
+          position: absolute;
+          top:0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+    }
+    .letter-text:last-child{
+      border:none;
+    }
+  }
+}
+
+
+.myself{
+  background: #fff;
+  padding:0 .44rem;
+  .inner{
+    &::before{
+      line-height: 1.44rem;
+      text-align: center;
+      font-size: .72rem;
+      font-family: 'iconfont';
+    }
+  }
+  .photo-album::before{
+    color: #10AEFF;
+    content: '\e61d';
+  }
+  .collect{
+    border:none;
+    &::before{
+      background: url($img+'sc.png') no-repeat center;
+      background-size: .88rem .93rem;
+    }
+  }
+  .wallet::before{
+    background: url($img+'qb.png') no-repeat center;
+    background-size: .90rem .80rem;
+  }
+  .IthacaHours{
+    border:none;
+    &::before{
+      background: url($img+'kq.png') no-repeat center;
+      background-size: .85rem .80rem;
+    }
+  }
+  .expression{
+    border:none;
+    &::before{
+      background: url($img+'bq.png') no-repeat center;
+      background-size: .87rem .85rem;
+    }
+  }
+  .set{
+    border: none;
+    &::before{
+      content:'\e60b';
+      color:#10AEFF;
+    }
+  }
+  .split{
+    margin:0 -.44rem;
+  }
+  .my-message{
+    height:2.4rem;
+    position: relative;
+    a{
+      display: block;
+      img{
+        width:1.94rem;
+        height:1.94rem;
+        position: absolute;
+        margin: auto;
+        top:0;
+        bottom:0;
+        left:0;
+      }
+      .name{
+        padding-left: 2.85rem;
+        display: inline-block;
+        line-height: 2.4rem;
+        font-size: .46rem;
+        font-weight: 100;
+      }
+      .d2-code{
+        right:.57rem;
+        width:.56rem;
+        height:.56rem;
+        position: absolute;
+        top:0;
+        bottom:0;
+        margin: auto;
+        background: url($img+'ewm.png') no-repeat;
+        background-size: .56rem;
+      }
+    }
+  }
+}
+.user-news{
+  height:100%;
+  background-color: #fff;
+  position: relative;
+  .not-available{
+    position: absolute;
+    top:2rem;
+    left:0;
+    right:0;
+    margin: auto;
+    text-align: center;
+    color:#999;
+  }
+}
+.WeChat{
+  background-color: #fff;
+  .Contact-Person{
+    height: 1.44rem;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #DBDBDB;
+    a{
+      height: 1.44rem;
+      display: block;
+      font-size: .46rem;
+      line-height: 1.44rem;
+      padding-left: 1.9rem;
+      position: relative;
+      transition: transform .5s ease;
+    }
+    img{
+      width: 1.1rem;
+      height: 1.1rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: .44rem;
+      margin: auto;
+    }
+    .name{
+      padding-top:.42rem;
+      display: block;
+      height:.90rem;
+      line-height: 0;
+    }
+    .exchange{
+      display: block;
+      height:.54rem;
+      padding-top:.1rem;
+      line-height: 0;
+      font-size: .35rem;
+      color:#999;
+    }
+    .time{
+      width:1rem;
+      height:.36rem;
+      position: absolute;
+      top:.41rem;
+      right:0;
+      line-height:.36rem;
+      font-size: .3rem;
+    }
+    .del-btn{
+      width:2rem;
+      height:100%;
+      display: block;
+      position: absolute;
+      top:0;
+      right:-2rem;
+      background-color: #FF3A30;
+      line-height: 1.44rem;
+      text-align: center;
+      color:#fff;
+      transition: transform .5s ease;
+    }
+  }
+  .Contact-Person.del{
+    a,.del-btn{
+      transform: translateX(-2rem);
+    }
+  }
+  .Contact-Person.ng-leave{
+    & ~ li{
+      transition: transform 0s ease;
+      transform: translateY(-100%);
+    }
+    & + li{
+      a{
+        transition: transform 0s ease;
+        transform: translateX(-2rem);
+      }
+      .del-btn{
+        transition: transform 0s ease;
+        transform: translateX(-2rem);
+      }
+    }
+  }
+}
+.chatlist{
+  margin-top: 1.15rem;
+  padding:0 .26rem;
+  li{
+    padding-bottom:.4rem;
+    width:100%;
+    position: relative;
+    &::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .send-time{
+      width:100%;
+      height:1.3rem;
+      text-align: center;
+      .time{
+        width:1.35rem;
+        height:.65rem;
+        display: inline-block;
+        line-height: .65rem;
+        background-color:#D4D4D4;
+        color:#fff;
+        font-size: .33rem;
+        border-radius: .1rem;
+        letter-spacing: .05rem;
+        text-align: center;
+      }
+    }
+    img{
+      width:1.22rem;
+      height:1.22rem;
+      vertical-align: top;
+    }
+    .chat-content{
+      display: inline-block;
+      margin-left: .28rem;
+      position: relative;
+    }
+    .chat-content-text{
+      line-height: 0.7rem;
+      display: block;
+      max-width: 7.05rem;
+      background-image: linear-gradient(#fff,#F9F9F9);
+      border-radius: .2rem;
+      padding: .20rem .33rem;
+      border:1px solid #9A9A9A;
+      font-size: .46rem;
+      position: relative;
+      z-index: 2;
+    }
+    .pointer{
+      display: block;
+      width:.3rem;
+      height:.3rem;
+      background-color: #fff;
+      border-radius: .1rem;
+      transform: rotate(45deg);
+      position: absolute;
+      top:.461rem;
+      left:-0.13rem;
+      border-left:1px solid #9A9A9A;
+      border-bottom:1px solid #9A9A9A;
+      z-index: 2;
+    }
+    .buding{
+      width:.1rem;
+      height:70%;
+      margin: auto;
+      background-image: linear-gradient(#FEFEFE,#FAFAFA);
+      position: absolute;
+      top:0;
+      left:1px;
+      bottom:0;
+      z-index: 3;
+    }
+  }
+  li.chat-me{
+    img{
+      float: right;
+    }
+    .chat-content{
+      float: right;
+      margin-left: 0;
+      margin-right: .28rem;
+      .chat-content-text{
+        background-color:#B2E866;
+        border:1px solid #73C215;
+        background-image: none;
+      }
+      .pointer{
+        left: auto;
+        right: -0.13rem;
+        border-left:none;
+        border-bottom:none;
+        border-right: 1px solid #73C215;
+        border-top: 1px solid #73C215;
+        background-color: #B2E866;
+      }
+      .buding{
+        left:auto;
+        right:1px;
+        background-image: none;
+        background-color: #B2E866;
+      }
+    }
+  }
+}
+// .view.ng-leave{
+//   transition: opacity 0s linear;
+//   .user-news,.find,.myself,.adbook{
+//     transition: opacity .5s linear;
+//     opacity: 1;
+//   }
+// }
+// .view.ng-leave-active{
+//   .user-news,.find,.myself,.adbook{
+//     opacity: 0;
+//   }
+// }
+// .view.ng-enter{
+//   transition: opacity .3s linear;
+//   .user-news,.find,.myself,.adbook{
+//     transition: opacity .6s linear .6s;
+//     opacity: 0;
+//     position: absolute;
+//     top:0;
+//     left:0;
+//   }
+// }
+// .view.ng-enter-active{
+//   .user-news,.find,.myself,.adbook{
+//   }
+// }
+// .view.ng-enter{
+//   // transition: transform .5s linear;
+//   .chatlist{
+//     transition: transform .2s linear .5s;
+//     transform: translateX(-100%);
+//   }
+// }
+// .view.ng-enter-active{
+//   .chatlist{
+//     transform: translateX(0);
+//   }
+// }
+// .view.ng-leave{
+//   // transition: transform .5s linear;
+//   .chatlist{
+//     transition: transform .2s linear;
+//     transform: translateX(0);
+//   }
+// }
+// .view.ng-leave-active{
+//   .chatlist{
+//     transform: translateX(-100%);
+//   }
+// }
+#footer{
+  width:100%;
+  height:1.64rem;
+  background-color: #fff;
+  border-top: 1px solid #d6d6d6;
+  position: fixed;
+  left:0;
+  bottom:0;
+  z-index: 10000;
+  .footer-list{
+    &::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    li{
+      position: relative;
+      padding-top:1rem;
+      float: left;
+      width:25%;
+      height:1.64rem;
+      text-align: center;
+      box-sizing: border-box;
+      a{
+        display: block;
+        &::after{
+          content: '';
+          position: absolute;
+          top:0;
+          margin:auto;
+          left:0;
+          right:0;
+          width:1rem;
+          height:1rem;
+        }
+      }
+    }
+    li.active a{
+      color:#45C01A;
+    }
+    .wx a::after{
+      background: url($img+'weixin.png') no-repeat center;
+      background-size:.77rem .667rem;
+    }
+    .wx.active a::after{
+      background: url($img+'weixin-active.png') no-repeat center center;
+      background-size:.77rem .667rem;
+    }
+    .txl a::after{
+      background: url($img+'txl.png') no-repeat center;
+      background-size:.828rem .713rem;
+    }
+    .txl.active a::after{
+      background: url($img+'txl-active.png') no-repeat center;
+      background-size:.828rem .713rem;
+    }
+    .fx a::after{
+      background: url($img+'faxian.png') no-repeat center;
+      background-size:.748rem;
+    }
+    .fx.active a::after{
+      background: url($img+'faxian-active.png') no-repeat center;
+      background-size:.748rem;
+    }
+    .wo a::after{
+      background: url($img+'wo.png') no-repeat center;
+      background-size:.725rem;
+    }
+    .wo.active a::after{
+      background: url($img+'wo-active.png') no-repeat center;
+      background-size:.725rem;
+    }
+  }
+}
